@@ -12,3 +12,30 @@ var map = new ol.Map({
         zoom: 4
     })
 });
+
+let source = new ol.source.Vector();
+let layer = new ol.layer.Vector({
+    source: source
+});
+
+map.addLayer(layer);
+
+let draw = new ol.interaction.Draw({
+    type: 'Polygon',
+    source: source
+})
+
+map.addInteraction(draw);
+
+document.addEventListener('keydown', function (e) {
+    if (e.keyCode == 8) {
+        draw.removeLastPoint();
+    }
+    if (e.keyCode == 27) {
+        draw.setActive(false);
+    }
+    if (e.keyCode == 220) {
+        draw.setActive(true);
+    }
+    console.log(e.keyCode)
+});
