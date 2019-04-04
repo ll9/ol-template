@@ -1,4 +1,10 @@
-.map {
-    height: 400px;
+html, body {
+    margin: 0;
+    box-sizing: border-box;
+    height: 100%;
+}
+
+#map {
+    height: 100%;
     width: 100%;
 }
